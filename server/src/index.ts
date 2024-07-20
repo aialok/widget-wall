@@ -1,5 +1,8 @@
 import express, { NextFunction, Request, Response } from "express"
 import {config} from "dotenv"
+import userRoutes from './routes/user.js'
+import { errorMiddleware } from "./midddlewares/error.js";
+
 
 const app = express();
 
@@ -8,7 +11,12 @@ config({
 })
 const port =process.env.PORT || 4000;
 
+app.use(express.json())
+// routes her 
+app.use("/api/v1/user",userRoutes)
 
+// error middleware
+app.use(errorMiddleware)
 app.listen(port,()=>{
     console.log(`server is running on localhost ${port}`)
 })
