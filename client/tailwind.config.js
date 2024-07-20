@@ -15,9 +15,12 @@ module.exports = {
       screens: {
         "2xl": "1400px",
       },
+      
     },
     extend: {
       colors: {
+        'spotify-green': '#1DB954',
+        'spotify-green-light': '#1ed760',
         border: "hsl(var(--border))",
         input: "hsl(var(--input))",
         ring: "hsl(var(--ring))",
