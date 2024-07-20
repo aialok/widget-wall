@@ -9,7 +9,7 @@ export  const keys = [
   ];
 export const HomeLayouts = {
     lg: [
-      { i: "spotify", x: 0, y: 0, w: 1, h: 1, isResizable: true },
+      { i: "spotify", x: 0, y: 0, w: 1, h: 2.5, isResizable: false },
       { i: "b", x: 1, y: 0, w: 1, h: 1, isResizable: true },
       { i: "c", x: 0, y: 1, w: 1, h: 1, isResizable: true },
       { i: "d", x: 1, y: 1, w: 1, h: 1, isResizable: true },
