@@ -6,10 +6,13 @@ const prisma = new PrismaClient()
 
 export const createProfile=TryCatch(
     async(req,res,next)=>{
+        console.log('i am here')
         const {
             userId,name,imageUrl,
             email,
         }= req.body
+
+        console.log(req.body)
 
         if(!userId || !name || !imageUrl || !email ){
             return next(new ErrorHandler('bad request: missign filed',404))
