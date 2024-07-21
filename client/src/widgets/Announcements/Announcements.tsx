@@ -82,7 +82,7 @@ export default function Announcements({ className }: { className?: string }) {
   const [announcement, setAnnouncement] = useState<string[]>([]);
 
   useEffect(() => {
-    fetch("http://localhost:4000/api/v1/announcement")
+    fetch("https://widget-wall-production.up.railway.app/api/v1/announcement")
       .then((res) => res.json())
       .then((res) => {
         console.log(res.data);

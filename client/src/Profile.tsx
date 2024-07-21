@@ -23,51 +23,65 @@ const Profile = () => {
   const opportunities = [
     {
       id: "1",
-      title: "Frontend Developer",
-      fromTeam: "Development",
-      forTeam: "Product",
-      tags: ["React", "JavaScript", "CSS"],
+      title: "Automate repetitive data entry tasks",
+      fromTeam: "Operations",
+      forTeam: "AI Team",
+      tags: ["Automation", "AI", "Data Entry"],
     },
     {
       id: "2",
-      title: "Backend Developer",
-      fromTeam: "Development",
-      forTeam: "Infrastructure",
-      tags: ["Node.js", "Express", "MongoDB"],
+      title: "In-house analytics tool development",
+      fromTeam: "Marketing",
+      forTeam: "Engineering",
+      tags: ["Analytics", "Development", "Cost-saving"],
     },
     {
       id: "3",
-      title: "UI/UX Designer",
-      fromTeam: "Design",
-      forTeam: "Product",
-      tags: ["Sketch", "Figma", "Prototyping"],
+      title: "Improve internal communication platform",
+      fromTeam: "HR",
+      forTeam: "Product Team",
+      tags: ["Communication", "UX/UI", "Productivity"],
     },
     {
       id: "4",
-      title: "Data Analyst",
-      fromTeam: "Data Science",
-      forTeam: "Marketing",
-      tags: ["Python", "SQL", "Data Visualization"],
+      title: "Develop AI-powered customer service chatbot",
+      fromTeam: "Customer Support",
+      forTeam: "AI Team",
+      tags: ["AI", "Customer Service", "Automation"],
     },
     {
       id: "5",
-      title: "DevOps Engineer",
-      fromTeam: "Operations",
-      forTeam: "Infrastructure",
-      tags: ["AWS", "Docker", "Kubernetes"],
+      title: "Create a centralized knowledge management system",
+      fromTeam: "HR",
+      forTeam: "Engineering",
+      tags: ["Knowledge Management", "Productivity", "Collaboration"],
     },
     {
       id: "6",
-      title: "Mobile Developer",
-      fromTeam: "Development",
-      forTeam: "Product",
-      tags: ["Swift", "Kotlin", "Flutter"],
+      title: "Implement predictive maintenance for manufacturing equipment",
+      fromTeam: "Manufacturing",
+      forTeam: "Data Science",
+      tags: ["Predictive Analytics", "IoT", "Maintenance"],
+    },
+    {
+      id: "7",
+      title: "Develop a mobile app for field sales team",
+      fromTeam: "Sales",
+      forTeam: "Mobile Development",
+      tags: ["Mobile App", "Sales", "Productivity"],
+    },
+    {
+      id: "8",
+      title: "Create an automated social media content scheduler",
+      fromTeam: "Marketing",
+      forTeam: "Engineering",
+      tags: ["Social Media", "Automation", "Content Management"],
     },
   ];
 
   return (
     <div className=" w-[35%] pl-8 pt-10 max-h-screen overflow-auto">
-      <h1 className="text-5xl font-bold my-2">Hi,John Doe</h1>
+      <h1 className="text-4xl font-bold my-2">Hi,John Wick</h1>
 
       <div>
         <HealthTrackerWidget data={healthData} />
