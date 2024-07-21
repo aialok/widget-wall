@@ -16,8 +16,9 @@ interface OpportunityBoardWidgetProps {
 }
 
 const OpportunityBoardWidget: React.FC<OpportunityBoardWidgetProps> = ({ opportunities }) => {
+
   return (
-    <Card className="w-full h-full shadow-md overflow-hidden">
+    <Card className="w-10/12 -ml-3 h-full shadow-md overflow-hidden">
       <CardHeader className="p-4">
         <CardTitle className="text-lg font-semibold flex items-center">
           <Lightbulb className="w-5 h-5 mr-2 text-yellow-500" />
