@@ -2,13 +2,7 @@ import { cn } from "@/lib/utils";
 import { AnimatedList } from "@/components/magicui/animated-list";
 import { useEffect, useState } from "react";
 
-interface Item {
-  name: string;
-  description: string;
-  icon: string;
-  color: string;
-  time: string;
-}
+
 
 let notifications = [
   {
@@ -45,11 +39,8 @@ let notifications = [
 notifications = Array.from({ length: 10 }, () => notifications).flat();
 
 const Notification = (props : any) => {
-  // const fetchData = async () => {
-  //   const res = await fetch('https://jsonplaceholder.typicode.com/posts');
-  //   const data = await res.json();
-  //   console.log(data
-  // }
+
+  console.log(props)
 
   return (
     <figure
@@ -79,7 +70,7 @@ const Notification = (props : any) => {
             <span className="text-xs text-gray-500">{"5m ago"}</span>
           </figcaption>
           <p className="text-sm font-normal dark:text-white/60">
-            {props.name}
+            {props.name.description}
           </p>
         </div>
       </div>
@@ -114,7 +105,7 @@ export default function Announcements({ className }: { className?: string }) {
     >
       <AnimatedList>
         {announcement.map((item, idx) => (
-          <Notification name={item.description} key={idx} />
+          <Notification name={item} key={idx} />
         ))}
       </AnimatedList>
     </div>

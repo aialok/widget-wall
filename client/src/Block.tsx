@@ -3,7 +3,6 @@ import SearchBar from "./widgets/ChatGptSearch/SearchBar";
 import GoogleSlide from "./widgets/GoogleSlide/GoogleSlide";
 import NotionPreview from "./widgets/Notion/NotionPreview";
 import Pomodoro from "./widgets/Pomodoro/Pomodoro";
-import PomodoroPreview from "./widgets/Pomodoro/PomodoroPreview";
 import SpotifyWidget from "./widgets/Spotify/SpotifyWidget";
 
 const Block = ({ keyProp }: { keyProp: string }) => {
