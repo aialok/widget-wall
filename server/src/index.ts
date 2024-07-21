@@ -2,10 +2,11 @@ import express, { NextFunction, Request, Response } from "express";
 import { config } from "dotenv";
 import userRoutes from "./routes/user.js";
 import { errorMiddleware } from "./midddlewares/error.js";
-import poleRoutes from './routes/poles.js'
+import poleRoutes from "./routes/poles.js";
 import cors from "cors";
 import linkRoutes from './routes/link.js'
 import announcementRoutes from './routes/announcement.js'
+import { transformSheetData } from "./utils/filter-data.js"
 
 const app = express();
 
@@ -19,23 +20,16 @@ app.use(cors());
 // routes her
 app.use("/api/v1/user", userRoutes);
 app.use("/api/v1/pole", poleRoutes);
-
 app.use("/api/v1/link", linkRoutes);
 app.use("/api/v1/announcement", announcementRoutes);
 
 
 app.post("/googleSheets", (req: Request, res: Response, next: NextFunction) => {
   try {
-    const rawData = req.body.allData;
-    const processedData = rawData[0].reduce(
-      (acc: any, header: string, index: number) => {
-        acc[header] = rawData.slice(1).map((row: any[]) => row[index] || "");
-        return acc;
-      },
-      {}
-    );
-    console.log(processedData);
-    res.json(processedData);
+    const rawData = req.body;
+    const transformedData = transformSheetData(rawData);
+    console.log(transformedData);
+    res.json(transformedData);
   } catch (error) {
     console.log(error);
     res
@@ -43,6 +37,7 @@ app.post("/googleSheets", (req: Request, res: Response, next: NextFunction) => {
       .json({ error: "An error occurred while processing the data" });
   }
 });
+
 
 app.get("/", (req: Request, res: Response, next: NextFunction) => {
   console.log(req.url);
