@@ -1,7 +1,7 @@
 import { useState } from "react";
 
 function GoogleSlide() {
-  const [slideLink, setSlideLink] = useState(
+  const [slideLink] = useState(
     "https://docs.google.com/presentation/d/e/2PACX-1vQ-OyDThIE1nywQIrCGcWIJ0qalNedmy5gXK3WQUTvhuD2GSe-OPr6hKTaiv8G2Qm1oJAzjVTs7PZr6/embed?start=true&loop=true&delayms=3000"
   );
 

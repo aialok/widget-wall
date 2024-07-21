@@ -1,9 +1,7 @@
 import Announcements from "./widgets/Announcements/Announcements";
 import GoogleSlide from "./widgets/GoogleSlide/GoogleSlide";
-import Notion from "./widgets/Notion/Notion";
 import NotionPreview from "./widgets/Notion/NotionPreview";
 import PomodoroPreview from "./widgets/Pomodoro/PomodoroPreview";
-import Pomodoro from "./widgets/Pomodoro/PomodoroPreview";
 import SpotifyWidget from "./widgets/Spotify/SpotifyWidget";
 
 const Block = ({ keyProp }: { keyProp: string }) => {

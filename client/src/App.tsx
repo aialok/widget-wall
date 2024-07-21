@@ -9,15 +9,6 @@ export default function App() {
         <ReponsiveGrid />
       </span>
 
-      <div className="iframely-embed h-20 w-20">
-        <div className="iframely-responsive " >
-          <a
-            href="https://capable-market-7af.notion.site/5005d44ec96b42a6af762dba62d3c26a"
-            data-iframely-url="//iframely.net/Kd0oPeF"
-          ></a>
-        </div>
-      </div>
-      <script async src="//iframely.net/embed.js"></script>
 
       <RetroGrid />
     </main>

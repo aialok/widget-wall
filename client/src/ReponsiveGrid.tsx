@@ -4,7 +4,7 @@ import { HomeLayouts, keys } from "./utils/layout.helper";
 import Block from "./Block";
 
 const ResponsiveGrid = () => {
-  const [layout, setLayout] = useState(HomeLayouts);
+  const [layout] = useState(HomeLayouts);
 
   const ResponsiveReactGridLayout = useMemo(() => WidthProvider(Responsive), []);
 
