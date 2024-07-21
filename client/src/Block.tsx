@@ -1,4 +1,5 @@
 import Announcements from "./widgets/Announcements/Announcements";
+import SearchBar from "./widgets/ChatGptSearch/SearchBar";
 import GoogleSlide from "./widgets/GoogleSlide/GoogleSlide";
 import NotionPreview from "./widgets/Notion/NotionPreview";
 import PomodoroPreview from "./widgets/Pomodoro/PomodoroPreview";
@@ -25,6 +26,9 @@ const Block = ({ keyProp }: { keyProp: string }) => {
     case "notion":
       content = <NotionPreview />;
       break;
+      case "searchBar":
+        content = <SearchBar />;
+        break;
     default:
       content = <div>Block</div>;
   }
