@@ -38,7 +38,6 @@ app.post("/googleSheets", (req: Request, res: Response, next: NextFunction) => {
   }
 });
 
-
 app.get("/", (req: Request, res: Response, next: NextFunction) => {
   console.log(req.url);
   res.send("Hello World");
