@@ -3,8 +3,17 @@ import GoogleSlide from "./widgets/GoogleSlide/GoogleSlide";
 import NotionPreview from "./widgets/Notion/NotionPreview";
 import PomodoroPreview from "./widgets/Pomodoro/PomodoroPreview";
 import SpotifyWidget from "./widgets/Spotify/SpotifyWidget";
+import BookQuoteWidget from "./widgets/ Bookquote/bookquote";
 
 const Block = ({ keyProp }: { keyProp: string }) => {
+  const bookData = {
+    title: "To Kill a Mockingbird",
+    author: "Harper Lee",
+    quote:
+      "You never really understand a person until you consider things from his point of view... Until you climb inside of his skin and walk around in it.",
+    readBy: 18000000,
+  };
+
   let content;
 
   switch (keyProp) {
@@ -23,8 +32,8 @@ const Block = ({ keyProp }: { keyProp: string }) => {
     case "notion":
       content = <NotionPreview />;
       break;
-    case "a":
-      content = <div>Block A</div>;
+    case "bookQuote":
+      content = <BookQuoteWidget book={bookData} />;
       break;
     default:
       content = <div>Block</div>;
