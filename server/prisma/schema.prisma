@@ -16,52 +16,66 @@ enum IssueStatus {
 }
 
 model Profile {
-  id             String        @id @default(auto()) @map("_id") @db.ObjectId
-  userId         String        @unique
-  name           String
-  imageUrl       String
-  email          String
+  id       String @id @default(auto()) @map("_id") @db.ObjectId
+  userId   String @unique
+  name     String
+  imageUrl String
+  email    String
 
-  til            TIL[]
-  issueTrackers  IssueTracker[]
+  til           TIL[]
+  issueTrackers IssueTracker[]
 
-  createdAt      DateTime      @default(now())
-  updatedAt      DateTime      @updatedAt
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
 }
 
 model Poll {
-  id             String        @id @default(auto()) @map("_id") @db.ObjectId
-  question       String
-  options        PollOption[]
-  createdAt      DateTime      @default(now())
-  updatedAt      DateTime      @updatedAt
+  id        String       @id @default(auto()) @map("_id") @db.ObjectId
+  question  String
+  options   PollOption[]
+  createdAt DateTime     @default(now())
+  votes     Vote[]
+
+  updatedAt DateTime @updatedAt
 }
 
 model PollOption {
-  id             String        @id @default(auto()) @map("_id") @db.ObjectId
-  pollId         String        @db.ObjectId
-  poll           Poll          @relation(fields: [pollId], references: [id])
-  option         String
-  votes          Int           @default(0)
-  createdAt      DateTime      @default(now())
-  updatedAt      DateTime      @updatedAt
+  id        String   @id @default(auto()) @map("_id") @db.ObjectId
+  pollId    String   @db.ObjectId
+  poll      Poll     @relation(fields: [pollId], references: [id])
+  option    String
+  votes     Int      @default(0)  // Add this line
+  voteRelation Vote[]
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
 }
-
 model TIL {
-  id             String        @id @default(auto()) @map("_id") @db.ObjectId
-  profileId      String        @db.ObjectId
-  profile        Profile       @relation(fields: [profileId], references: [id])
-  content        String
-  createdAt      DateTime      @default(now())
-  updatedAt      DateTime      @updatedAt
+  id        String   @id @default(auto()) @map("_id") @db.ObjectId
+  profileId String   @db.ObjectId
+  profile   Profile  @relation(fields: [profileId], references: [id])
+  content   String
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
 }
 
 model IssueTracker {
-  id             String        @id @default(auto()) @map("_id") @db.ObjectId
-  profileId      String        @db.ObjectId
-  profile        Profile       @relation(fields: [profileId], references: [id])
-  issue          String
-  status         IssueStatus   @default(OPEN)
-  createdAt      DateTime      @default(now())
-  updatedAt      DateTime      @updatedAt
+  id        String      @id @default(auto()) @map("_id") @db.ObjectId
+  profileId String      @db.ObjectId
+  profile   Profile     @relation(fields: [profileId], references: [id])
+  issue     String
+  status    IssueStatus @default(OPEN)
+  createdAt DateTime    @default(now())
+  updatedAt DateTime    @updatedAt
+}
+
+model Vote {
+  id        String     @id @default(auto()) @map("_id") @db.ObjectId
+  userId    String
+  pollId    String     @db.ObjectId
+  optionId  String     @db.ObjectId
+  poll      Poll       @relation(fields: [pollId], references: [id])
+  option    PollOption @relation(fields: [optionId], references: [id])
+  createdAt DateTime   @default(now())
+
+  @@unique([userId, pollId])
 }
