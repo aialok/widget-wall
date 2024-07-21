@@ -4,13 +4,10 @@ import userRoutes from "./routes/user.js";
 import { errorMiddleware } from "./midddlewares/error.js";
 import poleRoutes from "./routes/poles.js";
 import cors from "cors";
-<<<<<<< HEAD
 import linkRoutes from './routes/link.js'
 import announcementRoutes from './routes/announcement.js'
 import { transformSheetData } from "./utils/filter-data.js"
-=======
 import sheetRoutes from "./routes/sheet.js";
->>>>>>> abc2658 (minor changes)
 
 const app = express();
 
@@ -24,7 +21,6 @@ app.use(cors());
 // routes her
 app.use("/api/v1/user", userRoutes);
 app.use("/api/v1/pole", poleRoutes);
-<<<<<<< HEAD
 app.use("/api/v1/link", linkRoutes);
 app.use("/api/v1/announcement", announcementRoutes);
 
@@ -42,9 +38,7 @@ app.post("/googleSheets", (req: Request, res: Response, next: NextFunction) => {
       .json({ error: "An error occurred while processing the data" });
   }
 });
-=======
 app.use("/api/v1/googleSheets", sheetRoutes);
->>>>>>> abc2658 (minor changes)
 
 app.get("/", (req: Request, res: Response, next: NextFunction) => {
     return res.status(200).json({

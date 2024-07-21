@@ -13,10 +13,30 @@ export const saveGoogleSheetToDB = TryCatch(async (req, res, next) => {
     return next(new ErrorHandler("Invalid data", 400));
   }
 
-
-
-
   // Store in DB
+  const announcementArray = transformedData.announcement 
+
+  for(const anno in announcementArray){
+    await prisma.announcement.create({
+      data:{
+        description:anno
+      }
+    })
+  }
+
+  const linkArray= transformedData.googleSlideLink
+
+  for(const link  in linkArray){
+    await prisma.link.create({
+      data:{
+        link:link
+      }
+    })
+  }
+
+  
+
+
 
 
 
