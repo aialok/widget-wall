@@ -58,7 +58,7 @@ function SpotifyWidget() {
   };
 
   return (
-    <div className="w-full h-full flex flex-col p-4 bg-gray-100 rounded-lg shadow-md relative">
+    <div className="w-full h-full flex flex-col p-2 bg-gray-100 rounded-lg shadow-md relative">
       <div className="flex-grow relative w-full mb-4">
         {error ? (
           <div className="absolute inset-0 w-full h-full rounded-lg bg-red-50 border-2 border-red-200 flex flex-col items-center justify-center text-red-500 p-4">

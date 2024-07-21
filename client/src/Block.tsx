@@ -1,7 +1,10 @@
-import Test from "./Test";
-import Pomodoro from "./widgets/Pomodoro/Pomodoro";
-import SpotifyWidget from "./widgets/Spotify/SpotifyWidget";
+import Announcements from "./widgets/Announcements/Announcements";
 import GoogleSlide from "./widgets/GoogleSlide/GoogleSlide";
+import Notion from "./widgets/Notion/Notion";
+import NotionPreview from "./widgets/Notion/NotionPreview";
+import PomodoroPreview from "./widgets/Pomodoro/PomodoroPreview";
+import Pomodoro from "./widgets/Pomodoro/PomodoroPreview";
+import SpotifyWidget from "./widgets/Spotify/SpotifyWidget";
 
 const Block = ({ keyProp }: { keyProp: string }) => {
   let content;
@@ -11,16 +14,16 @@ const Block = ({ keyProp }: { keyProp: string }) => {
       content = <SpotifyWidget />;
       break;
     case "pomodoro":
-      content = <Pomodoro />;
-      break;
-    case "test":
-      content = <Test />;
+      content = <PomodoroPreview />;
       break;
     case "googleSlide":
       content = <GoogleSlide />;
       break;
-    case "e":
-      content = <div>Block E</div>;
+    case "announcements":
+      content = <Announcements />;
+      break;
+    case "notion":
+      content = <NotionPreview />;
       break;
     case "a":
       content = <div>Block A</div>;

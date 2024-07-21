@@ -93,38 +93,22 @@
   transition: visibility 500ms ease 0s;
 }
 
-@keyframes flip {
-  0% {
-    transform: rotateY(0deg);
-  }
-  100% {
-    transform: rotateY(180deg);
-  }
+.card {
+  transform-style: preserve-3d;
+  transition: all 0.8s ease;
 }
 
-@keyframes flip-back {
-  0% {
-    transform: rotateY(180deg);
-  }
-  100% {
-    transform: rotateY(0deg);
-  }
+.front {
+  /* backface-visibility: hidden; */
+  transform-style: preserve-3d;
 }
 
-.flip-animation {
-  animation: flip 0.6s forwards;
+.back {
+  /* backface-visibility: hidden; */
+  transform: rotateY(180deg);
+  transform-style: preserve-3d;
 }
 
-.flip-back-animation {
-  animation: flip-back 0.6s forwards;
+.cardFlip {
+  transform: rotateY(180deg);
 }
-
-/* .timerMinHeight {
-  min-height: calc(100dvh - 122px);
-}
-
-@media screen and (min-width: 640px) {
-  .timerMinHeight {
-    min-height: calc(100vh - 60px);
-  }
-} */

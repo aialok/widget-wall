@@ -9,12 +9,11 @@ const ResponsiveGrid = () => {
   const ResponsiveReactGridLayout = useMemo(() => WidthProvider(Responsive), []);
 
   return (
-    <div className="flex-1 m-auto flex justify-between b-10 overflow-auto">
+    <div className="flex-1  flex justify-between b-10 overflow-auto">
       <ResponsiveReactGridLayout
         className="flex-1"
         breakpoints={{ xl: 1200, lg: 899, md: 768 }}
         cols={{ xl: 3, lg: 4, md: 1 }}
-        preventCollision={true}
         rowHeight={200}
         margin={[30, 30]}
         layouts={layout}

@@ -1,6 +1,6 @@
 const Profile = () => {
   return (
-    <div className=" w-[35%] pl-14 pt-16 max-h-screen">
+    <div className=" w-[35%] pl-14 pt-16 h-screen">
       <div className="h-48 w-48 rounded-full bg-black">
         <img
           className="h-48 w-48 rounded-full object-cover"
