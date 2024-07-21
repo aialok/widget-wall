@@ -1,7 +1,7 @@
-import React from 'react';
+import React from "react";
 import { Card, CardContent } from "@/components/ui/card";
 import { Progress } from "@/components/ui/progress";
-import { FootprintsIcon, FlameIcon, ActivityIcon } from 'lucide-react';
+import { FootprintsIcon, FlameIcon, ActivityIcon } from "lucide-react";
 
 interface HealthTrackerWidgetProps {
   data: {
@@ -18,23 +18,23 @@ const HealthTrackerWidget: React.FC<HealthTrackerWidgetProps> = ({ data }) => {
   const { steps, caloriesBurned, activeMinutes, stepsGoal, caloriesGoal, activeMinutesGoal } = data;
 
   return (
-    <Card className="w-full h-full shadow-md">
+    <Card className="h-full shadow-md w-10/12 -ml-3 mt-4">
       <CardContent className="p-4 space-y-3">
         <h3 className="text-lg font-semibold mb-2">Health Tracker</h3>
         <div className="grid grid-cols-3 gap-2">
-          <StatItem 
+          <StatItem
             icon={<FootprintsIcon className="w-4 h-4 text-blue-500" />}
             value={steps}
             goal={stepsGoal}
             label="Steps"
           />
-          <StatItem 
+          <StatItem
             icon={<FlameIcon className="w-4 h-4 text-orange-500" />}
             value={caloriesBurned}
             goal={caloriesGoal}
             label="Calories"
           />
-          <StatItem 
+          <StatItem
             icon={<ActivityIcon className="w-4 h-4 text-green-500" />}
             value={activeMinutes}
             goal={activeMinutesGoal}

@@ -1,4 +1,5 @@
 import BookQuoteWidget from "./widgets/ Bookquote/BookQuote";
+import HealthTrackerWidget from "./widgets/HealthTracker/HealthTracker";
 
 const Profile = () => {
   const bookData = {
@@ -7,6 +8,15 @@ const Profile = () => {
     quote:
       "You never really understand a person until you consider things from his point of view... Until you climb inside of his skin and walk around in it.",
     readBy: 18000000,
+  };
+
+  const healthData = {
+    steps: 8500,
+    caloriesBurned: 350,
+    activeMinutes: 45,
+    stepsGoal: 10000,
+    caloriesGoal: 500,
+    activeMinutesGoal: 60,
   };
 
   return (
@@ -20,11 +30,15 @@ const Profile = () => {
       </div> */}
 
       <h1 className="text-5xl font-bold my-2">Hi,John Doe</h1>
-      <div className="my-2 text-lg leading-9">
+      {/* <div className="my-2 text-lg leading-9">
         <p>born in Hamburg</p>
         <p>design enthusiast</p>
         <p>studying industrial design in kiel wip</p>
         <p>le monde est à vous</p>
+      </div> */}
+
+      <div>
+        <HealthTrackerWidget data={healthData} />
       </div>
 
       <div>

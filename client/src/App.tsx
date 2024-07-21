@@ -8,7 +8,7 @@ export default function App() {
         <Profile />
         <ReponsiveGrid />
       </span>
-
+    
 
       <RetroGrid />
     </main>

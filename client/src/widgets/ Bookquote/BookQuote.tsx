@@ -14,7 +14,7 @@ interface BookQuoteWidgetProps {
 
 const BookQuoteWidget: React.FC<BookQuoteWidgetProps> = ({ book }) => {
   return (
-    <Card className="shadow-lg hover:shadow-xl transition-shadow duration-300 my-10 w-10/12 -ml-3">
+    <Card className="shadow-lg hover:shadow-xl transition-shadow duration-300 my-6 w-10/12 -ml-3">
       <CardHeader className="space-y-1">
         <div className="flex items-center justify-between">
           <CardTitle className="text-2xl font-bold">{book.title}</CardTitle>
