@@ -68,7 +68,7 @@ function SpotifyWidget() {
           </div>
         ) : (
           <iframe
-            className="absolute inset-0 w-full h-full rounded-lg shadow-sm"
+            className="absolute inset-0 w-full min-h-40 rounded-lg shadow-sm"
             src={embeddedPlaylistUrl}
             allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture"
             loading="lazy"

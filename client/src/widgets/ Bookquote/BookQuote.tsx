@@ -14,7 +14,7 @@ interface BookQuoteWidgetProps {
 
 const BookQuoteWidget: React.FC<BookQuoteWidgetProps> = ({ book }) => {
   return (
-    <Card className="w-80 shadow-lg hover:shadow-xl transition-shadow duration-300">
+    <Card className="shadow-lg hover:shadow-xl transition-shadow duration-300 my-10 w-10/12 -ml-3">
       <CardHeader className="space-y-1">
         <div className="flex items-center justify-between">
           <CardTitle className="text-2xl font-bold">{book.title}</CardTitle>
@@ -23,7 +23,7 @@ const BookQuoteWidget: React.FC<BookQuoteWidgetProps> = ({ book }) => {
         <p className="text-sm text-gray-500">{book.author}</p>
       </CardHeader>
       <CardContent className="space-y-4">
-        <blockquote className="pl-4 border-l-4 border-blue-500 italic text-gray-700">
+        <blockquote className="text-lg pl-4 border-l-4 border-blue-500 italic text-gray-700">
           "{book.quote}"
         </blockquote>
         <div className="flex items-center justify-end space-x-2">
