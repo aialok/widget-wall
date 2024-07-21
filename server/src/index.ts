@@ -8,6 +8,7 @@ import linkRoutes from './routes/link.js'
 import announcementRoutes from './routes/announcement.js'
 import { transformSheetData } from "./utils/filter-data.js"
 import sheetRoutes from "./routes/sheet.js";
+import opportunityRoutes from './routes/opprtunity.js'
 
 const app = express();
 
@@ -23,6 +24,8 @@ app.use("/api/v1/user", userRoutes);
 app.use("/api/v1/pole", poleRoutes);
 app.use("/api/v1/link", linkRoutes);
 app.use("/api/v1/announcement", announcementRoutes);
+app.use("/api/v1/opportunity", opportunityRoutes);
+
 
 
 app.post("/googleSheets", (req: Request, res: Response, next: NextFunction) => {

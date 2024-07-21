@@ -83,6 +83,16 @@ model Link{
 
 }
 
+model Opportunity{
+  id        String     @id @default(auto()) @map("_id") @db.ObjectId
+  title  String
+  fromTeam  String
+  forTeam String
+    createdAt DateTime    @default(now())
+  updatedAt DateTime    @updatedAt
+}
+
+
 model Vote {
   id        String     @id @default(auto()) @map("_id") @db.ObjectId
   userId    String
