@@ -1,6 +1,7 @@
 import Test from "./Test";
 import Pomodoro from "./widgets/Pomodoro/Pomodoro";
 import SpotifyWidget from "./widgets/Spotify/SpotifyWidget";
+import GoogleSlide from "./widgets/GoogleSlide/GoogleSlide";
 
 const Block = ({ keyProp }: { keyProp: string }) => {
   let content;
@@ -15,8 +16,8 @@ const Block = ({ keyProp }: { keyProp: string }) => {
     case "test":
       content = <Test />;
       break;
-    case "d":
-      content = <div>Block D</div>;
+    case "googleSlide":
+      content = <GoogleSlide />;
       break;
     case "e":
       content = <div>Block E</div>;
