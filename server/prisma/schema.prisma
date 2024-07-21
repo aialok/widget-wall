@@ -68,6 +68,21 @@ model IssueTracker {
   updatedAt DateTime    @updatedAt
 }
 
+model Announcement{
+  id        String     @id @default(auto()) @map("_id") @db.ObjectId
+  description String
+  createdAt DateTime    @default(now())
+  updatedAt DateTime    @updatedAt
+}
+
+model Link{
+  id        String     @id @default(auto()) @map("_id") @db.ObjectId
+  link String
+  createdAt DateTime    @default(now())
+  updatedAt DateTime    @updatedAt
+
+}
+
 model Vote {
   id        String     @id @default(auto()) @map("_id") @db.ObjectId
   userId    String

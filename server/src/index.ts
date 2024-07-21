@@ -4,6 +4,8 @@ import userRoutes from "./routes/user.js";
 import { errorMiddleware } from "./midddlewares/error.js";
 import poleRoutes from './routes/poles.js'
 import cors from "cors";
+import linkRoutes from './routes/link.js'
+import announcementRoutes from './routes/announcement.js'
 
 const app = express();
 
@@ -17,6 +19,9 @@ app.use(cors());
 // routes her
 app.use("/api/v1/user", userRoutes);
 app.use("/api/v1/pole", poleRoutes);
+
+app.use("/api/v1/link", linkRoutes);
+app.use("/api/v1/announcement", announcementRoutes);
 
 
 app.post("/googleSheets", (req: Request, res: Response, next: NextFunction) => {
