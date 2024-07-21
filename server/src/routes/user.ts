@@ -1,5 +1,5 @@
 import express, { Request,Response } from "express";
-import { createProfile } from "../controller.ts/user";
+import { createProfile } from "../controllers/user";
 const app = express.Router();
 
 // app.use('/',(req:Request,res:Response)=>{
