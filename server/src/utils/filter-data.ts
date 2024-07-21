@@ -1,3 +1,5 @@
+import { json } from "stream/consumers";
+
 export function transformSheetData(data: any) {
   if (!data.Sheet1 || !Array.isArray(data.Sheet1) || data.Sheet1.length < 2) {
     throw new Error("Invalid data structure");
@@ -21,5 +23,5 @@ export function transformSheetData(data: any) {
     });
   });
 
-  return result;
+  return JSON.parse(JSON.stringify(result));
 }

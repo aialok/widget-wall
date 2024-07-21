@@ -4,7 +4,6 @@ import ErrorHandler from "../utils/utility-class";
 import { PrismaClient } from "@prisma/client";
 
 const prisma = new PrismaClient();
-
 export const saveGoogleSheetToDB = TryCatch(async (req, res, next) => {
   const rawData = req.body;
   // Extract the sheet data and store it in db
@@ -13,32 +12,29 @@ export const saveGoogleSheetToDB = TryCatch(async (req, res, next) => {
     return next(new ErrorHandler("Invalid data", 400));
   }
 
-  // Store in DB
-  const announcementArray = transformedData.announcement 
+  console.log(transformedData);
 
-  for(const anno in announcementArray){
-    await prisma.announcement.create({
-      data:{
-        description:anno
-      }
-    })
+  // Check if announcements exist and is an array
+  if (Array.isArray(transformedData.annoucements)) {
+    for (const announcement of transformedData.annoucements) {
+      await prisma.announcement.create({
+        data: {
+          description: announcement,
+        },
+      });
+    }
   }
 
-  const linkArray= transformedData.googleSlideLink
-
-  for(const link  in linkArray){
-    await prisma.link.create({
-      data:{
-        link:link
-      }
-    })
+  // Check if googleSlideLink exists and is an array
+  if (Array.isArray(transformedData.googleSlideLink)) {
+    for (const link of transformedData.googleSlideLink) {
+      await prisma.link.create({
+        data: {
+          link: link,
+        },
+      });
+    }
   }
-
-  
-
-
-
-
 
   console.log(transformedData);
 
