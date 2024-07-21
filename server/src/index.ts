@@ -2,6 +2,7 @@ import express, { NextFunction, Request, Response } from "express";
 import { config } from "dotenv";
 import userRoutes from "./routes/user.js";
 import { errorMiddleware } from "./midddlewares/error.js";
+import poleRoutes from './routes/poles.js'
 import cors from "cors";
 
 const app = express();
@@ -15,6 +16,8 @@ app.use(express.json());
 app.use(cors());
 // routes her
 app.use("/api/v1/user", userRoutes);
+app.use("/api/v1/pole", poleRoutes);
+
 
 app.post("/googleSheets", (req: Request, res: Response, next: NextFunction) => {
   try {
