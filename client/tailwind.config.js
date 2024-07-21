@@ -19,6 +19,35 @@ module.exports = {
     },
     extend: {
       colors: {
+
+
+
+
+        "out-green-1000": "#0E3A0F",
+        "out-green-800": "#41A563",
+        "out-green-600": "#538C67",
+        "out-green-400": "#4CA069",
+        "out-green-200": "#7ED09A",
+
+        //  New colors
+        "midnight-moss": "#14231A",
+        "shadowy-forest": "#061F0F",
+        "evergreen-meadow": "#02551F",
+        "turquoise-tide": "#2A998C",
+        "coastal-blue": "#237995",
+        "ember-glow": "#801D07",
+        "moonlit-silver": "#C3C3C3",
+
+
+
+
+
+
+
+
+
+
+
         'spotify-green': '#1DB954',
         'spotify-green-light': '#1ed760',
         border: "hsl(var(--border))",
@@ -54,6 +83,9 @@ module.exports = {
           DEFAULT: "hsl(var(--card))",
           foreground: "hsl(var(--card-foreground))",
         },
+      },
+      fontFamily: {
+        mont: ["Roboto Mono"],
       },
       borderRadius: {
         lg: "var(--radius)",

@@ -1,5 +1,6 @@
 @import "../node_modules/react-grid-layout/css/styles.css";
 @import "../node_modules/react-resizable/css/styles.css";
+@import url("https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&family=Roboto+Condensed:ital,wght@0,100..900;1,100..900&family=Roboto+Mono:ital,wght@0,100..700;1,100..700&display=swap");
 
 @tailwind base;
 @tailwind components;
@@ -70,12 +71,14 @@
     @apply bg-background text-foreground;
   }
 }
+.react-grid-layout {
+  position: relative;
+}
 
 .react-grid-item.react-grid-placeholder {
-  background: rgba(0, 0, 0, 0.305) none repeat scroll 0% 0%;
-  /* opacity: 0.07; */
+  background: rgba(0, 0, 0, 0.438) none repeat scroll 0% 0%;
   transition-duration: 100ms;
-  z-index: 2;
+  /* z-index: 2; */
   -webkit-user-select: none;
   -moz-user-select: none;
   -ms-user-select: none;
@@ -87,7 +90,41 @@
 }
 
 .react-grid-item {
-  /* transition: transform 500ms ease 0s !important; */
   transition: visibility 500ms ease 0s;
-  /* will-change: transform; */
 }
+
+@keyframes flip {
+  0% {
+    transform: rotateY(0deg);
+  }
+  100% {
+    transform: rotateY(180deg);
+  }
+}
+
+@keyframes flip-back {
+  0% {
+    transform: rotateY(180deg);
+  }
+  100% {
+    transform: rotateY(0deg);
+  }
+}
+
+.flip-animation {
+  animation: flip 0.6s forwards;
+}
+
+.flip-back-animation {
+  animation: flip-back 0.6s forwards;
+}
+
+/* .timerMinHeight {
+  min-height: calc(100dvh - 122px);
+}
+
+@media screen and (min-width: 640px) {
+  .timerMinHeight {
+    min-height: calc(100vh - 60px);
+  }
+} */

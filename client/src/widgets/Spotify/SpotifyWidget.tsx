@@ -1,4 +1,4 @@
-import { useState, useEffect } from "react";
+import React, { useState, useEffect } from "react";
 import { Input } from "@/components/ui/input";
 import { Button } from "@/components/ui/button";
 import { RefreshCw, Loader2, AlertCircle } from "lucide-react";
@@ -12,7 +12,8 @@ function SpotifyWidget() {
   const [isLoading, setIsLoading] = useState<boolean>(false);
 
   const isValidSpotifyUrl = (url: string) => {
-    const regex = /^https:\/\/open\.spotify\.com\/(playlist|track|album|artist|episode)\/[a-zA-Z0-9]+(\?si=[a-zA-Z0-9]+)?$/;
+    const regex =
+      /^https:\/\/open\.spotify\.com\/(playlist|track|album|artist|episode)\/[a-zA-Z0-9]+(\?si=[a-zA-Z0-9]+)?$/;
     return regex.test(url);
   };
 
@@ -57,7 +58,7 @@ function SpotifyWidget() {
   };
 
   return (
-    <div className="w-full h-full flex flex-col p-4 bg-gray-100 rounded-lg shadow-md">
+    <div className="w-full h-full flex flex-col p-4 bg-gray-100 rounded-lg shadow-md relative">
       <div className="flex-grow relative w-full mb-4">
         {error ? (
           <div className="absolute inset-0 w-full h-full rounded-lg bg-red-50 border-2 border-red-200 flex flex-col items-center justify-center text-red-500 p-4">
@@ -74,7 +75,7 @@ function SpotifyWidget() {
           ></iframe>
         )}
       </div>
-      <div className="flex flex-col space-y-2">
+      <div className="flex flex-col space-y-2 visible">
         <div className="flex space-x-2">
           <Input
             type="text"
