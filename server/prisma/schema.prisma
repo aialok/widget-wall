@@ -6,7 +6,7 @@ generator client {
 }
 
 datasource db {
-  provider = "postgresql"
+  provider = "mongodb"
   url      = env("DATABASE_URL")
 }
 
@@ -16,58 +16,52 @@ enum IssueStatus {
 }
 
 model Profile {
-  id       String   @id @default(uuid())
-  userId   String   @unique
-  name     String
-  imageUrl String   @db.Text
-  email    String   @db.Text
+  id             String        @id @default(auto()) @map("_id") @db.ObjectId
+  userId         String        @unique
+  name           String
+  imageUrl       String
+  email          String
 
-  til           TIL[]
-  issueTrackers IssueTracker[]
+  til            TIL[]
+  issueTrackers  IssueTracker[]
 
-  createdAt DateTime @default(now())
-  updatedAt DateTime @updatedAt
+  createdAt      DateTime      @default(now())
+  updatedAt      DateTime      @updatedAt
 }
 
 model Poll {
-  id         String       @id @default(uuid())
-  question   String
-  options    PollOption[]
-  createdAt  DateTime     @default(now())
-  updatedAt  DateTime     @updatedAt
+  id             String        @id @default(auto()) @map("_id") @db.ObjectId
+  question       String
+  options        PollOption[]
+  createdAt      DateTime      @default(now())
+  updatedAt      DateTime      @updatedAt
 }
 
 model PollOption {
-  id         String   @id @default(uuid())
-  pollId     String
-  poll       Poll     @relation(fields: [pollId], references: [id], onDelete: Cascade)
-  option     String
-  votes      Int      @default(0)
-  createdAt  DateTime @default(now())
-  updatedAt  DateTime @updatedAt
-
-  @@index([pollId])
+  id             String        @id @default(auto()) @map("_id") @db.ObjectId
+  pollId         String        @db.ObjectId
+  poll           Poll          @relation(fields: [pollId], references: [id])
+  option         String
+  votes          Int           @default(0)
+  createdAt      DateTime      @default(now())
+  updatedAt      DateTime      @updatedAt
 }
 
 model TIL {
-  id         String   @id @default(uuid())
-  profileId  String
-  profile    Profile  @relation(fields: [profileId], references: [id], onDelete: Cascade)
-  content    String   @db.Text
-  createdAt  DateTime @default(now())
-  updatedAt  DateTime @updatedAt
-
-  @@index([profileId])
+  id             String        @id @default(auto()) @map("_id") @db.ObjectId
+  profileId      String        @db.ObjectId
+  profile        Profile       @relation(fields: [profileId], references: [id])
+  content        String
+  createdAt      DateTime      @default(now())
+  updatedAt      DateTime      @updatedAt
 }
 
 model IssueTracker {
-  id          String       @id @default(uuid())
-  profileId   String
-  profile     Profile      @relation(fields: [profileId], references: [id], onDelete: Cascade)
-  issue       String       @db.Text
-  status      IssueStatus  @default(OPEN)
-  createdAt   DateTime     @default(now())
-  updatedAt   DateTime     @updatedAt
-
-  @@index([profileId])
+  id             String        @id @default(auto()) @map("_id") @db.ObjectId
+  profileId      String        @db.ObjectId
+  profile        Profile       @relation(fields: [profileId], references: [id])
+  issue          String
+  status         IssueStatus   @default(OPEN)
+  createdAt      DateTime      @default(now())
+  updatedAt      DateTime      @updatedAt
 }
